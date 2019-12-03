@@ -9,14 +9,26 @@
 <body>
     <h1 id="heading">Find gold!</h1>
 
-    <img id="map" width=400 height=400
+    <img id="map" width=800 height=800
      src="http://nostarch.com/images/treasuremap.png" alt="">
 <p id="distance"></p>
 
 <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
 <script>
-    // here will be code of game
+    //Choosing a random place for a treasure
+    var getRandomNumber = function (size){
+        return Math.floor(Math.random()*size);
+    };
+    var width = 800;
+    var height = 800;
+
+    var target = {
+        x: getRandomNumber(width),
+        y: getRandomNumber(height)
+    };
+    //console.log(target);
+
 </script>
 
 </body>
