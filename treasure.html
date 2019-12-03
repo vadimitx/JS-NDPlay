@@ -28,7 +28,19 @@
         y: getRandomNumber(height)
     };
     //console.log(target);
+    $("#map").click(function(event){
 
+    })
+   
+    var clicks = 0;
+     //distance from click to treasure
+    var getDistance = function (event, target) {
+        var diffX = event.offsetX - target.x;
+        var diffY = evernt.offsetY - target.y;
+        return Math.sqrt ((diffX * diffX) + (diffY * diffY));
+    };
+    console.log(target);
+    
 </script>
 
 </body>
