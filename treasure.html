@@ -20,27 +20,67 @@
     var getRandomNumber = function (size){
         return Math.floor(Math.random()*size);
     };
-    var width = 800;
-    var height = 800;
-
-    var target = {
-        x: getRandomNumber(width),
-        y: getRandomNumber(height)
-    };
-    //console.log(target);
-    $("#map").click(function(event){
-
-    })
-   
-    var clicks = 0;
-     //distance from click to treasure
+    //Distance from click to treasure
     var getDistance = function (event, target) {
         var diffX = event.offsetX - target.x;
         var diffY = evernt.offsetY - target.y;
         return Math.sqrt ((diffX * diffX) + (diffY * diffY));
     };
-    console.log(target);
+    //Get hint line for distance
+    var gerDistanceHint = function (distance) {
+        if (distance < 10) {
+            return "Burnt";
+        } else if (distance < 20) {
+            return "Very hot";
+        } else if (distance < 40) {
+            return "Hot";
+        } else if (distance < 80) {
+            return "Warm";
+        } else if (distance < 160) {
+            return "Cold";
+        } else if (distance < 320) {
+            return "Very cold";   
+        } else {
+            return "Freeze!";
+        }
+    }; 
     
+    // Size and clics
+    var width = 800;
+    var height = 800;
+    var clicks = 0;
+
+    //Random position treasure
+    var target = {
+        x: getRandomNumber(width),
+        y: getRandomNumber(height)
+    };
+
+    //Add a click handler to the img element.
+    $("#map").click(function(event){
+        clicks++;
+
+
+    //Get the distance from the place click to the treasure
+    var distance = getDistance (event, target);
+    var gerDistanceHint = getDistanceHint (distance);
+    $("#distance").text(gerDistanceHint);  
+    if (distance < 8) {
+        alert("Treasure found! Clicks made: " + clics);
+        }
+    
+    });
+   
+   
+     
+    
+    
+
+    
+    
+
+   
+
 </script>
 
 </body>
